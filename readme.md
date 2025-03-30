@@ -19,9 +19,8 @@
 
 
 ## Technologies Used
-- **Java 17**
+- **Java 23**
 - **Spring Boot**
-- **Web3j**
 - **Etherscan API**
 - **CoinGecko API**
 - **Jackson (JSON Processing)**
