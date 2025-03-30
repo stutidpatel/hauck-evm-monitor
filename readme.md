@@ -34,9 +34,9 @@
 2. Navigate to the project directory:
     ```bash
    cd hauck-evm-monitor
-3. Set up your application.properties file under src/main/resources/ with your Etherscan API key:
+3. Set up your application-local.properties file under src/main/resources/ with your Etherscan API key:
     ```bash
-    etherscan.api.key="YOU_API_KEY"
+    etherscan.api.key= YOU_API_KEY
     etherscan.assets.api = https://api.etherscan.io/api?module=account&action=tokentx&address=%s&apikey=%s
     etherscan.tx.api = https://api.etherscan.io/api?module=account&action=txlist&address=%s&startblock=0&endblock=99999999&sort=desc&apikey=%s"
 
