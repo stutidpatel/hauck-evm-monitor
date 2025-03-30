@@ -20,7 +20,7 @@ public class BalanceController {
     }
 
     @GetMapping("/{address}")
-    public BigDecimal getBalance(@PathVariable String address)  {
+    public BigDecimal getBalance(@PathVariable String address) throws Exception {
         return balanceService.getBalance(address);
     }
 }

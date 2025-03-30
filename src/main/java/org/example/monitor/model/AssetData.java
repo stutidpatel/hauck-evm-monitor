@@ -1,14 +1,11 @@
 package org.example.monitor.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class AssetData {
     private String name;
     private String symbol;
@@ -16,4 +13,13 @@ public class AssetData {
     private String contractAddress;
     private BigDecimal balance;
     private BigDecimal usdValue;
+
+    public AssetData(String name, String symbol, int decimals, String contractAddress, BigDecimal balance, BigDecimal usdValue) {
+        this.name = name;
+        this.symbol = symbol;
+        this.decimals = decimals;
+        this.contractAddress = contractAddress;
+        this.balance = balance;
+        this.usdValue = usdValue;
+    }
 }

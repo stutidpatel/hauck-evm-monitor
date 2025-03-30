@@ -21,7 +21,7 @@ public class AssetController {
     }
 
     @GetMapping("/{address}")
-    public List<AssetData> getAssets(@PathVariable String address)  {
+    public List<AssetData> getAssets(@PathVariable String address)  throws Exception {
         return assetService.getAllAssets(address);
     }
 

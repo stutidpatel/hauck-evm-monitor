@@ -60,7 +60,7 @@ public class AssetService {
                         tokenValue,
                         usdValue
                 ));
-//                break;
+                break;
             }
         } catch (Exception e) {
             System.out.println("Error fetching token balances");

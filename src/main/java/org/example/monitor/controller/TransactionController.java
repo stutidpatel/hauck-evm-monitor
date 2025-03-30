@@ -15,7 +15,7 @@ public class TransactionController {
     }
 
     @GetMapping("/{address}")
-    public TransactionStatistics getTransactions(@PathVariable String address)  {
+    public TransactionStatistics getTransactions(@PathVariable String address)  throws Exception {
         return etherscanService.getTransactions(address);
     }
 

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import org.json.JSONObject;
-//import org.json.JSONArray;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -31,7 +29,6 @@ public class EtherscanService {
         List<TransactionData> transactions = new ArrayList<>();
         int swapCount = 0;
         BigDecimal totalTransactionVolume = BigDecimal.ZERO;
-        TransactionStatistics transactionStatistics = new TransactionStatistics();
 
         try {
             RestTemplate restTemplate = new RestTemplate();
@@ -61,18 +58,18 @@ public class EtherscanService {
             BigDecimal ethPrice = getEthPrice();
             BigDecimal totalVolumeUSD = totalTransactionVolume.multiply(ethPrice);
 
-            transactionStatistics.setTotalSwaps(swapCount);
-            transactionStatistics.setTotalEthereumVolume(totalTransactionVolume);
-            transactionStatistics.setTotalTransactionVolumeInUSD(totalVolumeUSD);
-            transactionStatistics.setTransactionDataList(transactions);
+
+            TransactionStatistics transactionStatistics = new TransactionStatistics(swapCount,totalVolumeUSD,totalTransactionVolume,transactions);
+
             System.out.println("Total Swaps: " + swapCount);
             System.out.println("Total Transaction Volume in ETH: " + totalTransactionVolume);
             System.out.println("Total Transaction Volume in USD: " + totalVolumeUSD);
+            return transactionStatistics;
         } catch (Exception e) {
             System.out.println("Error ");
             e.printStackTrace();
+            return null;
         }
-        return transactionStatistics;
     }
 
     public BigDecimal getEthPrice() {
